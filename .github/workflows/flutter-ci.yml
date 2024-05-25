@@ -3,10 +3,10 @@ name: Flutter and Dart CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -25,7 +25,10 @@ jobs:
       - name: Set up Dart
         uses: dart-lang/setup-dart@v1
         with:
-          sdk: 'stable'  
+          sdk: 'stable'
+
+      - name: Install Kotlin
+        run: sudo apt-get install -y kotlin
 
       - name: Install Flutter dependencies
         run: flutter pub get
